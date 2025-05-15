@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     locale: "es_ES",
     type: "website",
   },
+  themeColor: "transparent",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent", // o "default", "black"
+  },
+  manifest: "/manifest.json"
 };
 
 export default function RootLayout({

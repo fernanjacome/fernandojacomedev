@@ -1,0 +1,9 @@
+{
+  "name": "Fernando Jácome Portfolio",
+  "short_name": "Portfolio",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "transparent",
+  "background_color": "#06000c",
+  "orientation": "portrait-primary"
+}
