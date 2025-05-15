@@ -17,7 +17,7 @@ export const SectionProvider = ({ children }: { children: React.ReactNode }) => 
         <SectionContext.Provider value={{ currentSection, setCurrentSection }}>
             <>
                 {children}
-                <div style={{
+                {/* <div style={{
                     position: 'fixed',
                     top: 12,
                     right: 16,
@@ -31,7 +31,7 @@ export const SectionProvider = ({ children }: { children: React.ReactNode }) => 
                     pointerEvents: 'none',
                 }}>
                     Sección: {currentSection}
-                </div>
+                </div> */}
             </>
         </SectionContext.Provider>
     );
