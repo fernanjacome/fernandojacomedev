@@ -9,18 +9,24 @@ export default function Hero() {
 
         <div className={styles.overlay}>
             <small className={styles.tagline}>
-                Interfaces limpias. Experiencias claras. Desarrollo profesional.
+                Diseño con intención. Código con propósito.
             </small>
             <h1><span className={styles.name}>Fernando Jácome</span></h1>
             <div className={styles.line}></div>
-            <p className={styles.highlight}>Diseñador y desarrollador de software</p>
-            <p>Enfocado en <strong>experiencias digitales impecables</strong>, diseño UI/UX y soluciones a medida con React, Next.js y .NET.</p>
+            <p className={styles.highlight}>Full Stack Developer con mirada de diseñador.</p>
+            Desarrollo sistemas, dashboards y sitios web donde cada píxel y cada función cuentan.
+            <strong><br></br>Si impacta al usuario, me interesa.</strong>
             <div className={styles.techTags}>
                 <span>#React</span><span>#NextJS</span><span>#CSharp</span>
                 <span>#DotNet</span><span>#UI</span><span>#UX</span>
             </div>
 
-
+            <button className={styles.scrollButton} onClick={() => {
+                const about = document.getElementById('about');
+                if (about) about.scrollIntoView({ behavior: 'smooth' });
+            }}>
+                <span></span>
+            </button>
         </div>
     );
 }
