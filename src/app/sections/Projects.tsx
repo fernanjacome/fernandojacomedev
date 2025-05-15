@@ -2,9 +2,9 @@ import React from 'react'
 
 const Projects = () => {
     return (
-        <section id="projects" className={styles.section}>
+        <section id="projects">
             <h2>Proyectos</h2>
-            <ul className={styles.projectList}>
+            <ul >
                 <li>
                     <strong>Sistema de Monitoreo</strong> — WinForms + C# + API REST
                 </li>

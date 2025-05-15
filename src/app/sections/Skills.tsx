@@ -2,9 +2,9 @@ import React from 'react'
 
 const Skills = () => {
     return (
-        <section id="skills" className={styles.section}>
+        <section id="skills" >
             <h2>Habilidades Técnicas</h2>
-            <ul className={styles.skillList}>
+            <ul >
                 <li>C# / .NET</li>
                 <li>React</li>
                 <li>JavaScript</li>
