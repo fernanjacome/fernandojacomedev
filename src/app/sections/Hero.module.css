@@ -67,11 +67,65 @@
   text-align: center;
   top: 10%;
   padding: 0 1rem;
-  top: 20%;
-  animation: fadeInUp 1s ease-out forwards;
+  top: 30%;
+  animation: fadeInUp 0.7s ease-out both;
   opacity: 0;
 }
+.overlay small {
+  display: block;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+.name {
+  background: linear-gradient(90deg, #ffffff, #575757);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+.highlight {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00e0ff;
+  margin-bottom: 0.8rem;
+}
+.line {
+  width: 60px;
+  height: 2px;
+  margin: 0.5rem auto 1.5rem;
+  background: linear-gradient(90deg, #ffffff, #575757);
+  border-radius: 100px;
+}
+
+.overlay h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.overlay p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ddd;
+  margin-bottom: 0.8rem;
+}
+
+.overlay .techTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+  color: #b3bbc7;
+}
+
+.overlay .techTags span {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+}
 @keyframes fadeInUp {
   0% {
     opacity: 0;
