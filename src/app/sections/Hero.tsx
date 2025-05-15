@@ -1,8 +1,5 @@
 // src/sections/Hero.tsx
 'use client';
-
-import { useEffect, useRef } from 'react';
-import { useSection } from '../context/SectionContext';
 import styles from './Hero.module.css';
 
 

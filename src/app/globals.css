@@ -44,10 +44,7 @@ body {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100dvh;
-}
-section {
-  scroll-snap-align: start;
-  height: 100dvh;
+  scroll-behavior: smooth;
 }
 .canvasContainer {
    position: fixed;

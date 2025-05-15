@@ -1,6 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
-import { useSection } from '../context/SectionContext';
+
 import styles from './About.module.css';
 export default function About() {
 

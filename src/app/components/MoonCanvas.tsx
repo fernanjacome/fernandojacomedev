@@ -38,15 +38,21 @@ function MoonMesh() {
 
         // 🌗 Escalado inicial hasta 1.0
         if (mesh.scale.x < 1) {
-            mesh.scale.x += 0.005;
-            mesh.scale.y += 0.005;
-            mesh.scale.z += 0.005;
+            const initial = mesh.scale.x + 0.005;
+            mesh.scale.set(initial, initial, initial);
         }
         const config = sectionConfig[currentSection] ?? sectionConfig.hero;
 
         const targetVec3 = new Vector3(...config.position);
         mesh.position.lerp(targetVec3, 0.05);
-        mesh.scale.lerp(new Vector3(config.scale, config.scale, config.scale), 0.05);
+
+        // Asegurá forma esférica
+        const current = mesh.scale.x;
+        mesh.scale.set(current, current, current);
+
+        // Lerp uniforme
+        const targetScale = new Vector3(config.scale, config.scale, config.scale);
+        mesh.scale.lerp(targetScale, 0.05);
     });
 
 
