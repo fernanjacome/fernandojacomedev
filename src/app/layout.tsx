@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import MoonCanvas from "./components/MoonCanvas";
+import { SectionProvider } from "./context/SectionContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,7 +18,14 @@ export const metadata: Metadata = {
   applicationName: "Fernando Jácome Portfolio",
   authors: [{ name: "Fernando Jácome" }],
   generator: "Next.js 15",
-  keywords: ["Fernando Jácome", "Portfolio", "Full Stack", "React", "C#", ".NET"],
+  keywords: [
+    "Fernando Jácome",
+    "Portfolio",
+    "Full Stack",
+    "React",
+    "C#",
+    ".NET",
+  ],
   creator: "Fernando Jácome",
   robots: { index: true, follow: true },
   openGraph: {
@@ -33,7 +42,7 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "black-translucent", // o "default", "black"
   },
-  manifest: "/manifest.json"
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -43,7 +52,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={poppins.variable}>
-      <body className="font-poppins bg-white text-gray-900">{children}</body>
+      <body>
+        <SectionProvider>
+          <div className="canvasContainer" >
+            <MoonCanvas />
+          </div>
+
+          <div>{children}</div>
+        </SectionProvider>
+      </body>
     </html>
   );
 }
