@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { TextureLoader, Mesh } from 'three';
+import { TextureLoader, Mesh, MeshStandardMaterial } from 'three';
 import { useRef, Suspense } from 'react';
 
 function MoonMesh() {
@@ -16,7 +16,7 @@ function MoonMesh() {
         moonRef.current.rotation.y += 0.003;
 
         // Fade-in suave de opacidad
-        const material = moonRef.current.material as THREE.MeshStandardMaterial;
+        const material = moonRef.current.material as MeshStandardMaterial;
         if (material.opacity < 1) {
             material.opacity += 0.02;
         }
