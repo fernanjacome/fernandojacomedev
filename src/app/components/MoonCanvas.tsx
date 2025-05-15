@@ -7,7 +7,7 @@ import { useRef, Suspense } from 'react';
 
 function MoonMesh() {
     const moonRef = useRef<Mesh>(null);
-    const texture = useLoader(TextureLoader, '/textures/moon.jpg');
+    const texture = useLoader(TextureLoader, '/textures/moon.webp');
 
     useFrame(() => {
         if (!moonRef.current) return;
