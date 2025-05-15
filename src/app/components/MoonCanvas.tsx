@@ -11,8 +11,8 @@ const sectionConfig: Record<
 > = {
     hero: { position: [0, -4.5, -1], scale: 4 },
     about: { position: [2, 0, -1], scale: 5 },
-    projects: { position: [-1, 0.5, -1], scale: 1.4 },
-    skills: { position: [0, -0.5, -2], scale: 1.1 },
+    projects: { position: [-2, 0, -1], scale: 5 },
+    skills: { position: [0, 4.5, -1], scale: 4 },
     contact: { position: [0, -1.5, -3], scale: 1.6 },
 };
 

@@ -74,3 +74,10 @@ body::before {
   transform: none !important;
   z-index: 0;
 }
+
+.about,
+.projects, .skills{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}

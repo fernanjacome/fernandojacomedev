@@ -1,10 +1,12 @@
-import React from 'react'
+'use client';
+import React from 'react';
+import styles from './Skills.module.css'; // Opcional si tienes estilos
 
 const Skills = () => {
     return (
-        <section id="skills" >
+        <div className={styles.skills}>
             <h2>Habilidades Técnicas</h2>
-            <ul >
+            <ul className={styles.skillList}>
                 <li>C# / .NET</li>
                 <li>React</li>
                 <li>JavaScript</li>
@@ -14,8 +16,8 @@ const Skills = () => {
                 <li>MonoGame</li>
                 <li>Git / GitHub</li>
             </ul>
-        </section>
-    )
-}
+        </div>
+    );
+};
 
-export default Skills
+export default Skills;

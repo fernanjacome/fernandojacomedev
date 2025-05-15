@@ -1,22 +1,25 @@
-import React from 'react'
+'use client';
+import styles from './Projects.module.css';
 
-const Projects = () => {
+export default function Projects() {
     return (
-        <section id="projects">
+        <div className={styles.container}>
             <h2>Proyectos</h2>
-            <ul >
+            <p>Explora algunos de los sistemas y soluciones que he desarrollado.</p>
+            <ul className={styles.projectList}>
                 <li>
-                    <strong>Sistema de Monitoreo</strong> — WinForms + C# + API REST
+                    <h3>Sistema de Monitoreo</h3>
+                    <span>WinForms + C# + API REST</span>
                 </li>
                 <li>
-                    <strong>Dashboard React + .NET</strong> — React, Tailwind, Web API
+                    <h3>Dashboard React + .NET</h3>
+                    <span>React, Tailwind, Web API</span>
                 </li>
                 <li>
-                    <strong>Juego tipo Stardew Valley</strong> — MonoGame, C#, Pixel Art
+                    <h3>Juego tipo Stardew Valley</h3>
+                    <span>MonoGame, C#, Pixel Art</span>
                 </li>
             </ul>
-        </section>
-    )
+        </div>
+    );
 }
-
-export default Projects

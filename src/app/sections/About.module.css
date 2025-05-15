@@ -1,16 +1,7 @@
-.about {
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  scroll-snap-align: start;
-  padding: 2rem;
-  color: white;
-  position: relative;
-  z-index: 2;
-}
+
 
 .content {
+  color: white;
   max-width: 600px;
   text-align: center;
   backdrop-filter: blur(5px);
