@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import MoonCanvas from "./components/MoonCanvas";
 import { SectionProvider } from "./context/SectionContext";
+import Navbar from "./components/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -53,7 +54,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={poppins.variable}>
       <body>
+
         <SectionProvider>
+          <Navbar />
           <div className="canvasContainer" >
             <MoonCanvas />
           </div>

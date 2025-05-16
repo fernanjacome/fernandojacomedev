@@ -9,7 +9,7 @@ const sectionConfig: Record<
     string,
     { position: [number, number, number]; scale: number }
 > = {
-    hero: { position: [0, -4.5, -1], scale: 4 },
+    hero: { position: [0, -5.1, -1], scale: 4 },
     about: { position: [2, 0, -1], scale: 5 },
     projects: { position: [-2, 0, -1], scale: 5 },
     skills: { position: [0, 4.5, -1], scale: 4 },

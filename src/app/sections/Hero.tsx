@@ -8,17 +8,19 @@ export default function Hero() {
     return (
 
         <div className={styles.overlay}>
-            <small className={styles.tagline}>
-                Diseño con intención. Código con propósito.
-            </small>
-            <h1><span className={styles.name}>Fernando Jácome</span></h1>
-            <div className={styles.line}></div>
-            <p className={styles.highlight}>Full Stack Developer con mirada de diseñador.</p>
-            Desarrollo sistemas, dashboards y sitios web donde cada píxel y cada función cuentan.
-            <strong><br></br>Si impacta al usuario, me interesa.</strong>
-            <div className={styles.techTags}>
-                <span>#React</span><span>#NextJS</span><span>#CSharp</span>
-                <span>#DotNet</span><span>#UI</span><span>#UX</span>
+            <div>
+                <small className={styles.tagline}>
+                    Diseño con intención. Código con propósito.
+                </small>
+                <h1><span className={styles.name}>Fernando Jácome</span></h1>
+                <div className={styles.line}></div>
+                <p className={styles.highlight}>Full Stack Developer con mirada de diseñador.</p>
+                Desarrollo sistemas, dashboards y sitios web donde cada píxel y cada función cuentan.
+                <strong><br></br>Si impacta al usuario, me interesa.</strong>
+                <div className={styles.techTags}>
+                    <span>#React</span><span>#NextJS</span><span>#CSharp</span>
+                    <span>#DotNet</span><span>#UI</span><span>#UX</span>
+                </div>
             </div>
 
             <button className={styles.scrollButton} onClick={() => {

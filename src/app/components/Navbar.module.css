@@ -1,0 +1,37 @@
+.navbar {
+  position: fixed;
+  top: 1rem; /* o ajusta como desees */
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  color: white;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+
+.left, .center, .right {
+  flex: 1;
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
