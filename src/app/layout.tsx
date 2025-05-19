@@ -56,7 +56,7 @@ export default function RootLayout({
       <body>
 
         <SectionProvider>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="canvasContainer" >
             <MoonCanvas />
           </div>
