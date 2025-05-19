@@ -55,8 +55,6 @@ export default function About() {
                 >
                     {activeTab === 'perfil' && (
                         <>
-                            <h3 className={styles.subtitle}>Perfil profesional</h3>
-
                             <div className={styles.profileBlock}>
                                 <div className={styles.profileRow}>
                                     <span className={styles.label}>Rol</span>

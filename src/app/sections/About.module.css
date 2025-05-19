@@ -13,7 +13,7 @@
 
 .header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .title {
@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
@@ -210,12 +210,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  margin-top: 1rem;
-  background: #1a1a1a;
-  border: 1px solid #2b2b2b;
-  border-radius: 12px;
-  padding: 1.2rem 1rem;
-  box-shadow: inset 0 0 0.3rem rgba(255, 255, 255, 0.02);
 }
 
 .profileRow {
@@ -233,8 +227,8 @@
 
 .profileRow .label {
   flex: 1 1 40%;
-  font-size: 0.75rem;
-  color: #888;
+  font-size: 0.8rem;
+  color: #8b8b8b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 500;
