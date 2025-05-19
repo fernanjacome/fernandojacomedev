@@ -85,7 +85,7 @@ export default function About() {
                             <div className={styles.profileBlock}>
                                 <div className={styles.profileRow}>
                                     <span className={styles.label}>Rol</span>
-                                    <span className={styles.value}>Software Developer</span>
+                                    <span className={styles.value}>Desarrollador de Software</span>
                                 </div>
                                 <div className={styles.profileRow}>
                                     <span className={styles.label}>Especialidad</span>
