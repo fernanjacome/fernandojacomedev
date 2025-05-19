@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import {
     SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs,
-    SiDotnet, SiDjango, SiFirebase, SiPostgresql, SiMongodb, SiSqlite, SiMysql,
+    SiDotnet, SiDjango, SiFirebase, SiMongodb, SiSqlite, SiMysql,
     SiFigma, SiAdobephotoshop, SiBootstrap, SiTailwindcss,
     SiGit, SiGnubash, SiApachenetbeanside
 } from 'react-icons/si';
