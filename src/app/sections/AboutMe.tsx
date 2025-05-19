@@ -9,8 +9,35 @@ import {
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import {
+    SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs,
+    SiDotnet, SiDjango, SiFirebase, SiPostgresql, SiMongodb, SiSqlite, SiMysql,
+    SiFigma, SiAdobephotoshop, SiBootstrap, SiTailwindcss,
+    SiGit, SiGnubash, SiApachenetbeanside
+} from 'react-icons/si';
+
 export default function About() {
     const [activeTab, setActiveTab] = useState('perfil');
+    const techs = [
+        { icon: <SiHtml5 />, label: 'HTML' },
+        { icon: <SiCss3 />, label: 'CSS/SCSS' },
+        { icon: <SiJavascript />, label: 'JavaScript' },
+        { icon: <SiReact />, label: 'React' },
+        { icon: <SiNextdotjs />, label: 'Next.js' },
+        { icon: <SiDotnet />, label: '.NET' },
+        { icon: <SiDjango />, label: 'Django' },
+        { icon: <SiFirebase />, label: 'Firebase' },
+        { icon: <SiApachenetbeanside />, label: 'APIs REST' },
+        { icon: <SiMysql />, label: 'SQL Server' },
+        { icon: <SiSqlite />, label: 'SQLite' },
+        { icon: <SiMongodb />, label: 'MongoDB' },
+        { icon: <SiFigma />, label: 'Figma' },
+        { icon: <SiAdobephotoshop />, label: 'Photoshop' },
+        { icon: <SiBootstrap />, label: 'Bootstrap' },
+        { icon: <SiTailwindcss />, label: 'Tailwind' },
+        { icon: <SiGit />, label: 'Git' },
+        { icon: <SiGnubash />, label: 'Bash' },
+    ];
 
     const tabs = [
         { id: 'perfil', label: 'Perfil', icon: <FaCode /> },
@@ -80,36 +107,45 @@ export default function About() {
                             </div>
                         </>
                     )}
-
-
-
                     {activeTab === 'experiencia' && (
                         <>
                             <h3 className={styles.subtitle}>Trayectoria profesional</h3>
                             <div className={styles.timeline}>
-                                <div><strong>AlexSoft S.A.</strong><p>Desarrollo de APIs en .NET y UIs para flujos de cajeros.</p></div>
-                                <div><strong>Condor Energy</strong><p>Sitio institucional en React con integración de pasarelas de pago.</p></div>
-                                <div><strong>Payconer</strong><p>Backend en Django y PostgreSQL con despliegue automatizado.</p></div>
+                                <div>
+                                    <span className={styles.date}>2024 – Actualidad</span>
+                                    <strong>AlexSoft S.A.</strong>
+                                    <p>Desarrollo de APIs en .NET y UIs entorno financiero y flujos de cajeros.</p>
+                                </div>
+                                <div>
+                                    <span className={styles.date}>2025</span>
+                                    <strong>Condor Energy</strong>
+                                    <p>Sitio coorporativo en React con integración de pasarelas de pago PayPayl y Firebase.</p>
+                                </div>
+                                <div>
+                                    <span className={styles.date}>2024</span>
+                                    <strong>Payconer</strong>
+                                    <p>Integración full stack con React, Django y PostgreSQL con despliegue automatizado.</p>
+                                </div>
                             </div>
                         </>
+
+
                     )}
 
                     {activeTab === 'stack' && (
                         <>
-                            <h3 className={styles.subtitle}>Stack técnico</h3>
-                            <div className={styles.stackGrid}>
-                                <div><h4>Frontend</h4><p>React, Next.js, SCSS, MUI</p></div>
-                                <div><h4>Backend</h4><p>.NET, Django, Firebase</p></div>
-                                <div><h4>Bases de datos</h4><p>PostgreSQL, SQLite</p></div>
-                                <div><h4>DevOps</h4><p>Git, Azure, Bash</p></div>
+                            <div className={styles.techGrid}>
+                                {techs.map(({ icon, label }) => (
+                                    <div className={styles.techItem} key={label}>
+                                        <span className={styles.techIcon}>{icon}</span>
+                                        <span className={styles.techLabel}>{label}</span>
+                                    </div>
+                                ))}
                             </div>
-                            <div className={styles.links}>
-                                <a href="#projects">Ver proyectos</a>
-                                <a href="#contact">Contactar</a>
-                                <a href="/FernandoJacome_2025.pdf" download>Descargar CV</a>
-                            </div>
+
                         </>
                     )}
+
                     {activeTab === 'personal' && (
                         <>
                             {/* <h3 className={styles.subtitle}>Sobre mi persona</h3> */}
@@ -139,6 +175,14 @@ export default function About() {
                                     <span className={styles.label}>Experiencia</span>
                                     <span className={styles.value}>3 años desarrollo web</span>
                                 </div>
+                                {/* <div className={styles.cardItem}>
+                                    <span className={styles.label}>Links</span>
+                                    <div className={styles.value} style={{ display: 'flex', gap: '0.3rem' }}>
+                                        <a href="#projects">Ver proyectos</a>
+                                        <a href="#contact">Contactar</a>
+                                        <a href="/FernandoJacome_2025.pdf" download>Descargar CV</a>
+                                    </div>
+                                </div> */}
                             </div>
                         </>
                     )}
