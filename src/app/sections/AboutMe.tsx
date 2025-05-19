@@ -3,7 +3,7 @@
 import styles from './About.module.css';
 import { useState } from 'react';
 import {
-    FaCode, FaBuilding, FaTerminal, FaPaintBrush, FaPuzzlePiece, FaBrain,
+    FaCode, FaBuilding, FaTerminal,
     FaUserCircle,
     FaLightbulb
 } from 'react-icons/fa';

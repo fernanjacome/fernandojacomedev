@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import MoonCanvas from "./components/MoonCanvas";
 import { SectionProvider } from "./context/SectionContext";
-import Navbar from "./components/Navbar";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
