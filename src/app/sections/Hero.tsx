@@ -1,5 +1,6 @@
 // src/sections/Hero.tsx
 'use client';
+import { FaRocket } from 'react-icons/fa';
 import styles from './Hero.module.css';
 
 
@@ -23,12 +24,17 @@ export default function Hero() {
                 </div>
             </div>
 
-            <button className={styles.scrollButton} onClick={() => {
-                const about = document.getElementById('about');
-                if (about) about.scrollIntoView({ behavior: 'smooth' });
-            }}>
-                <span></span>
+            <button
+                className={styles.scrollButton}
+                onClick={() => {
+                    const about = document.getElementById('about');
+                    if (about) about.scrollIntoView({ behavior: 'smooth' });
+                }}
+                aria-label="Scroll hacia abajo"
+            >
+                <FaRocket className={styles.rocketIcon} />
             </button>
+
         </div>
     );
 }

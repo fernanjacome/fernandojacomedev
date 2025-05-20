@@ -101,46 +101,42 @@
 }
 
 .scrollButton {
+  background: transparent;
   border: none;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
-  backdrop-filter: blur(4px);
   cursor: pointer;
-  position: relative;
-  width: 40px;
-  height: 40px;
+  margin-top: 2rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  animation: fadeIn 1.2s ease-out 0.5s both;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
-  
+  align-items: center;
+  transition: transform 0.3s ease;
 }
 
 .scrollButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transform: translateY(3px);
 }
 
-.scrollButton span {
-  display: block;
-  width: 18px;
-  height: 18px;
-  border-left: 2px solid #ffffffcc;
-  border-bottom: 2px solid #ffffffcc;
-  transform: rotate(-45deg);
-  animation: bounceDown 1.4s infinite ease-in-out;
-}
-
-@keyframes bounceDown {
-  0% {
-    transform: translateY(0) rotate(-45deg);
+@keyframes bounce {
+  0%, 100% {
+    transform: rotate(135deg) translateY(0);
   }
   50% {
-    transform: translateY(6px) rotate(-45deg);
+    transform: rotate(135deg) translateY(6px);
   }
-  100% {
-    transform: translateY(0) rotate(-45deg);
-  }
+}
+
+
+.rocketIcon {
+  font-size: 1.5rem;
+  color: #ffffff;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+  transition: color 0.3s ease;
+filter: drop-shadow(-1px -2px 5px rgba(10, 10, 10, 0.6))
+        drop-shadow(1px -2px 4px rgba(22, 22, 22, 0.6));
+
+}
+
+.scrollButton:hover .rocketIcon {
+  color: #fff;
+  opacity: 1;
 }

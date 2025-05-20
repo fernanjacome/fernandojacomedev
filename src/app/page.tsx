@@ -1,6 +1,7 @@
 'use client';
 
 import ObservedSection from './components/ObservedSection';
+import RocketMenu from './components/RocketMenu';
 import useScrollSnap from './components/useScrollSnap';
 import AboutMe from './sections/AboutMe';
 import Hero from './sections/Hero';
@@ -27,6 +28,7 @@ export default function Home() {
       <ObservedSection id="skills" className="skills">
         <Skills />
       </ObservedSection>
+      <RocketMenu />
     </main>
   );
 }
