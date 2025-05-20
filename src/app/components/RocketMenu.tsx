@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaRocket, FaUser, FaFolderOpen, FaTools, FaEnvelope, FaHome } from 'react-icons/fa';
+import { FaRocket, FaUser, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
 import styles from './RocketMenu.module.css';
 import { useSection } from '../context/SectionContext'; // Ajustá el path si es necesario
 import { FaEarthAmericas } from 'react-icons/fa6';
