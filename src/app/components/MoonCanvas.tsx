@@ -16,33 +16,33 @@ const sectionConfig: Record<
     { position: [number, number, number]; scale: number; planet: string }
 > = {
     hero: { position: [0, -5.1, -1], scale: 4, planet: 'moon' },
-    about: { position: [2, 0, -1], scale: 5, planet: 'mars' },
-    projects: { position: [-2, 0, -1], scale: 5, planet: 'venus' },
-    skills: { position: [0, -5.1, -1], scale: 4, planet: 'neptune' },
+    about: { position: [2, -1, -1], scale: 5, planet: 'mars' },
+    projects: { position: [-2, -1, -1], scale: 5, planet: 'jupiter' },
+    skills: { position: [0, -5.1, -1], scale: 4, planet: 'venus' },
     contact: { position: [0, -1.5, -3], scale: 1.6, planet: 'moon' },
 };
 
 const texturePaths = {
     moon: '/textures/moon.webp',
-    mars: '/textures/mars.jpg',
-    venus: '/textures/venus.jpg',
-    neptune: '/textures/jupiter.jpg',
+    mars: '/textures/mars.webp',
+    venus: '/textures/venus.webp',
+    jupiter: '/textures/jupiter.webp',
 };
 
-type PlanetName = 'moon' | 'mars' | 'venus' | 'neptune';
+type PlanetName = 'moon' | 'mars' | 'venus' | 'jupiter';
 
 // COMPONENTE PLANETA
 function MoonMesh() {
     const meshRef = useRef<Mesh>(null);
     const { currentSection } = useSection();
 
-    const [moon, mars, venus, neptune] = useLoader(TextureLoader, [
+    const [moon, mars, venus, jupiter] = useLoader(TextureLoader, [
         texturePaths.moon,
         texturePaths.mars,
         texturePaths.venus,
-        texturePaths.neptune,
+        texturePaths.jupiter,
     ]);
-    const planetMap: Record<PlanetName, Texture> = { moon, mars, venus, neptune };
+    const planetMap: Record<PlanetName, Texture> = { moon, mars, venus, jupiter };
 
     const [currentTexture, setCurrentTexture] = useState<Texture>(moon);
     const [phase, setPhase] = useState<'idle' | 'leaving' | 'arriving'>('idle');
@@ -140,9 +140,8 @@ export default function MoonCanvas() {
         >
             <ambientLight intensity={0.3} />
             <directionalLight position={[2, 2, 2]} />
-            <Suspense fallback={null}>
-                <MoonMesh />
-            </Suspense>
+
+            <MoonMesh />
         </Canvas>
     );
 }

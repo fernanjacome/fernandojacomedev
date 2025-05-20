@@ -9,7 +9,6 @@ export function useShowNavbar() {
 
   useEffect(() => {
     setShow(currentSection !== 'hero');
-    console.log(currentSection)
   }, [currentSection]);
 
   return show;

@@ -12,7 +12,7 @@ export const SectionContext = createContext<{
 
 export const SectionProvider = ({ children }: { children: React.ReactNode }) => {
     const [currentSection, setCurrentSection] = useState('hero');
-    console.log(currentSection)
+
     return (
         <SectionContext.Provider value={{ currentSection, setCurrentSection }}>
             <>
