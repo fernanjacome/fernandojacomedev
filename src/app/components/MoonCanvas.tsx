@@ -15,11 +15,10 @@ const sectionConfig: Record<
     string,
     { position: [number, number, number]; scale: number; planet: string }
 > = {
-    hero: { position: [0, -5.1, -1], scale: 4, planet: 'moon' },
+    hero: { position: [0, -5.1, -1], scale: 4.5, planet: 'moon' },
     about: { position: [2, -1, -1], scale: 5, planet: 'mars' },
     projects: { position: [-2, -1, -1], scale: 5, planet: 'jupiter' },
-    skills: { position: [0, -5.1, -1], scale: 4, planet: 'venus' },
-    contact: { position: [0, -1.5, -3], scale: 1.6, planet: 'moon' },
+    contact: { position: [0, -5.1, -1], scale: 5, planet: 'venus' },
 };
 
 const texturePaths = {

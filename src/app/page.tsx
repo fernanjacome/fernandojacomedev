@@ -4,9 +4,9 @@ import ObservedSection from './components/ObservedSection';
 import RocketMenu from './components/RocketMenu';
 import useScrollSnap from './components/useScrollSnap';
 import AboutMe from './sections/AboutMe';
+import Contact from './sections/Contact';
 import Hero from './sections/Hero';
 import Projects from './sections/Projects';
-import Skills from './sections/Skills';
 
 export default function Home() {
   useScrollSnap(['hero', 'about', 'projects', 'skills']);
@@ -25,8 +25,8 @@ export default function Home() {
         <Projects />
       </ObservedSection>
 
-      <ObservedSection id="skills" className="skills">
-        <Skills />
+      <ObservedSection id="contact" className="contact">
+        <Contact />
       </ObservedSection>
       <RocketMenu />
     </main>

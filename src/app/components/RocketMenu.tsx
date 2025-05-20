@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { FaRocket, FaUser, FaFolderOpen, FaTools, FaEnvelope } from 'react-icons/fa';
+import { FaRocket, FaUser, FaFolderOpen, FaTools, FaEnvelope, FaHome } from 'react-icons/fa';
 import styles from './RocketMenu.module.css';
 import { useSection } from '../context/SectionContext'; // Ajustá el path si es necesario
+import { FaEarthAmericas } from 'react-icons/fa6';
 
 export default function RocketMenu() {
     const { currentSection } = useSection();
@@ -36,6 +37,12 @@ export default function RocketMenu() {
                     {menuOpen && (
                         <div className={styles.menu}>
                             <button
+                                onClick={() => scrollTo('hero')}
+                                className={currentSection === 'hero' ? styles.active : ''}
+                            >
+                                <FaEarthAmericas /> Inicio
+                            </button>
+                            <button
                                 onClick={() => scrollTo('about')}
                                 className={currentSection === 'about' ? styles.active : ''}
                             >
@@ -47,12 +54,12 @@ export default function RocketMenu() {
                             >
                                 <FaFolderOpen /> Proyectos
                             </button>
-                            <button
+                            {/* <button
                                 onClick={() => scrollTo('skills')}
                                 className={currentSection === 'skills' ? styles.active : ''}
                             >
                                 <FaTools /> Habilidades
-                            </button>
+                            </button> */}
                             <a
                                 href="#contacto"
                                 className={`${styles.contactButton} ${currentSection === 'contacto' ? styles.active : ''}`}
