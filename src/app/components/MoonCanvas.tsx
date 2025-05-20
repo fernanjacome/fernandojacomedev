@@ -7,7 +7,7 @@ import {
     Vector3,
     Texture,
 } from 'three';
-import { useRef, Suspense, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useSection } from '../context/SectionContext';
 
 // CONFIGURACIÓN DE SECCIONES Y TEXTURAS
