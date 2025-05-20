@@ -190,10 +190,10 @@ export default function About() {
                     {activeTab === 'hobbies' && (
                         <>
                             <div className={styles.hobbyGridCompact}>
-                                <div className={styles.hobbyCardCompact}>
+                                {/* <div className={styles.hobbyCardCompact}>
                                     <span className={styles.label}>Electrónica</span>
                                     <p>Proyectos físicos y lógica digital.</p>
-                                </div>
+                                </div> */}
 
                                 <div className={styles.hobbyCardCompact}>
                                     <span className={styles.label}>Hardware de PC</span>

@@ -30,15 +30,14 @@ section {
 
 /* BODY BACKGROUND */
 body {
-  background: radial-gradient(ellipse at center, #000008 0%, #000000 100%);
+  background-image: url("/textures/milky.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
   z-index: 0;
 }
-
-/* STAR LAYER EFFECT */
+/* 
 body::before {
   content: "";
   position: fixed;
@@ -46,11 +45,10 @@ body::before {
   background: url("/textures/stardust.png") repeat;
   opacity: 0.4;
   animation: twinkle 3s infinite ease-in-out alternate;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
 }
 
-/* ANIMATION: TWINKLE EFFECT */
 @keyframes twinkle {
   0% {
     opacity: 0.4;
@@ -60,7 +58,7 @@ body::before {
     opacity: 0.6;
     transform: scale(1.05);
   }
-}
+} */
 
 /* CANVAS CONTAINER FOR MOON */
 .canvasContainer {

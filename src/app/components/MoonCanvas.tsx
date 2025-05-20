@@ -1,66 +1,135 @@
 'use client';
 
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { TextureLoader, Mesh, MeshStandardMaterial, Vector3 } from 'three';
-import { useRef, Suspense } from 'react';
+import {
+    TextureLoader,
+    Mesh,
+    Vector3,
+    Texture,
+} from 'three';
+import { useRef, Suspense, useEffect, useState } from 'react';
 import { useSection } from '../context/SectionContext';
 
+// CONFIGURACIÓN DE SECCIONES Y TEXTURAS
 const sectionConfig: Record<
     string,
-    { position: [number, number, number]; scale: number }
+    { position: [number, number, number]; scale: number; planet: string }
 > = {
-    hero: { position: [0, -5.1, -1], scale: 4 },
-    about: { position: [2, 0, -1], scale: 5 },
-    projects: { position: [-2, 0, -1], scale: 5 },
-    skills: { position: [0, 4.5, -1], scale: 4 },
-    contact: { position: [0, -1.5, -3], scale: 1.6 },
+    hero: { position: [0, -5.1, -1], scale: 4, planet: 'moon' },
+    about: { position: [2, 0, -1], scale: 5, planet: 'mars' },
+    projects: { position: [-2, 0, -1], scale: 5, planet: 'venus' },
+    skills: { position: [0, -5.1, -1], scale: 4, planet: 'neptune' },
+    contact: { position: [0, -1.5, -3], scale: 1.6, planet: 'moon' },
 };
 
+const texturePaths = {
+    moon: '/textures/moon.webp',
+    mars: '/textures/mars.jpg',
+    venus: '/textures/venus.jpg',
+    neptune: '/textures/jupiter.jpg',
+};
+
+type PlanetName = 'moon' | 'mars' | 'venus' | 'neptune';
+
+// COMPONENTE PLANETA
 function MoonMesh() {
-    const moonRef = useRef<Mesh>(null);
-    const texture = useLoader(TextureLoader, '/textures/moon.webp');
+    const meshRef = useRef<Mesh>(null);
     const { currentSection } = useSection();
 
+    const [moon, mars, venus, neptune] = useLoader(TextureLoader, [
+        texturePaths.moon,
+        texturePaths.mars,
+        texturePaths.venus,
+        texturePaths.neptune,
+    ]);
+    const planetMap: Record<PlanetName, Texture> = { moon, mars, venus, neptune };
+
+    const [currentTexture, setCurrentTexture] = useState<Texture>(moon);
+    const [phase, setPhase] = useState<'idle' | 'leaving' | 'arriving'>('idle');
+    const [progress, setProgress] = useState(0);
+    const [nextTexture, setNextTexture] = useState<Texture | null>(null);
+    const [startLeavePos, setStartLeavePos] = useState<Vector3 | null>(null);
+
+    const targetConfig = sectionConfig[currentSection] ?? sectionConfig.hero;
+
+    useEffect(() => {
+        const newTexture = planetMap[targetConfig.planet as PlanetName];
+        if (newTexture !== currentTexture && phase === 'idle') {
+            if (meshRef.current) {
+                setStartLeavePos(meshRef.current.position.clone());
+            }
+            setNextTexture(newTexture);
+            setPhase('leaving');
+            setProgress(0);
+        }
+    }, [currentSection]);
+
     useFrame(() => {
-        if (!moonRef.current) return;
+        const mesh = meshRef.current;
+        if (!mesh) return;
 
-        const mesh = moonRef.current;
-        const material = mesh.material as MeshStandardMaterial;
+        const { position, scale } = mesh;
+        const t = Math.min(progress + 0.05, 1);
+        setProgress(t);
+        const target = new Vector3(...targetConfig.position);
 
-        // 🌕 Rotación constante
-        mesh.rotation.y += 0.003;
+        if (phase === 'leaving' && startLeavePos) {
+            const leavePos = new Vector3(
+                startLeavePos.x - 10 * t,
+                startLeavePos.y + 5 * t,
+                startLeavePos.z
+            );
+            position.copy(leavePos);
+            scale.setScalar(targetConfig.scale * (1 - 0.4 * t));
 
-        // 🌘 Fade-in suave
-        if (material.opacity < 1) {
-            material.opacity = Math.min(material.opacity + 0.02, 1);
+            if (t >= 1 && nextTexture) {
+                setCurrentTexture(nextTexture);
+                setPhase('arriving');
+                setProgress(0);
+                setStartLeavePos(null);
+
+                const entryPos = new Vector3(
+                    target.x + 10,
+                    target.y - 5,
+                    target.z
+                );
+                mesh.position.copy(entryPos);
+                mesh.scale.setScalar(targetConfig.scale * 0.6);
+            }
         }
 
-        // ✅ SIEMPRE mantener escala exacta uniforme
-        const config = sectionConfig[currentSection] ?? sectionConfig.hero;
-        const currentScale = mesh.scale.x;
+        else if (phase === 'arriving') {
+            const enterPos = new Vector3(
+                target.x + 10 * (1 - t),
+                target.y - 5 * (1 - t),
+                target.z
+            );
+            position.copy(enterPos);
+            scale.setScalar(targetConfig.scale * (0.6 + 0.4 * t));
 
-        // Limpiar cualquier desincronización de ejes
-        mesh.scale.set(currentScale, currentScale, currentScale);
+            if (t >= 1) {
+                setPhase('idle');
+                setProgress(0);
+            }
+        }
 
-        // Interpolar escala garantizando igualdad
-        const target = config.scale;
-        const nextScale = currentScale + (target - currentScale) * 0.05;
-        mesh.scale.setScalar(nextScale);
+        else if (phase === 'idle') {
+            position.lerp(target, 0.05);
+            scale.setScalar(scale.x + (targetConfig.scale - scale.x) * 0.05);
+        }
 
-        // 🔄 Interpolar posición sin efecto angular (ortográfica)
-        const targetPos = new Vector3(...config.position);
-        mesh.position.lerp(targetPos, 0.05);
+        mesh.rotation.y += 0.003;
     });
 
-
     return (
-        <mesh ref={moonRef} scale={[1, 1, 1]}>
+        <mesh ref={meshRef}>
             <sphereGeometry args={[1, 64, 64]} />
-            <meshStandardMaterial map={texture} transparent opacity={0} />
+            <meshStandardMaterial map={currentTexture} />
         </mesh>
     );
 }
 
+// CANVAS PRINCIPAL
 export default function MoonCanvas() {
     return (
         <Canvas
@@ -75,6 +144,5 @@ export default function MoonCanvas() {
                 <MoonMesh />
             </Suspense>
         </Canvas>
-
     );
 }
