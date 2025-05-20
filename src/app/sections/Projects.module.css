@@ -65,8 +65,9 @@
 .projectCard {
   padding: 1rem 0;
   cursor: pointer;
-  transition: background 0.3s ease;
+   transition: background 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
   border-bottom: 1px solid #2a2a2a;
+  
 }
 
 .projectCard:last-child {
@@ -99,11 +100,18 @@
   justify-content: center;
 }
 
-.arrow {
-  font-size: 0.9rem;
+.chevron {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
   color: #aaa;
-  margin-left: 0.3rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.rotated {
+  transform: rotate(90deg);
+  color: #fff;
 }
 
 

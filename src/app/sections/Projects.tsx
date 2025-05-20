@@ -4,7 +4,7 @@ import styles from './Projects.module.css';
 import {
     FaReact,
     FaWindows,
-    FaCogs,
+
     FaGamepad,
     FaBootstrap,
     FaDatabase,
@@ -16,18 +16,16 @@ import {
     SiNextdotjs,
     SiFramer,
     SiFirebase,
-    SiRedux,
 } from 'react-icons/si';
+import { FiChevronRight } from 'react-icons/fi';
 
 const techIcons: Record<string, JSX.Element> = {
     'React': <FaReact />,
     'WinForms': <FaWindows />,
-    'C#': <FaCogs />,
     '.NET': <SiDotnet />,
     'SQL Server': <FaDatabase />,
     'Firebase': <SiFirebase />,
     'PayPal': <FaPaypal />,
-    'Redux': <SiRedux />,
     'Bootstrap': <FaBootstrap />,
     'SCSS': <FaCss3Alt />,
     'Next.js': <SiNextdotjs />,
@@ -35,31 +33,30 @@ const techIcons: Record<string, JSX.Element> = {
     'Pixel Art': <FaGamepad />,
     'MonoGame': <FaGamepad />,
 };
-
 const projects = [
     {
         title: 'Sistema de Integridad ATM',
         description:
-            'Desarrollo de un sistema de control de integridad para cajeros automáticos multientidad (Banco Guayaquil, Pichincha, Bolivariano, Solidario, etc). Incluye WinForms para visualización, API REST en .NET Framework, y base de datos para trazabilidad de eventos.',
+            'Sistema para monitoreo de cajeros multientidad con WinForms, .NET y base de datos para trazabilidad.',
         tech: 'C#, WinForms, .NET, REST, SQL Server',
     },
     {
         title: 'Plataforma Web Corporativa',
         description:
-            'Diseño y desarrollo del sitio web oficial de Condor Energy con React y Firebase. Incluye catálogo de productos, integración de pasarela PayPal, sistema de emails automáticos y diseño UI/UX personalizado.',
+            'Sitio web de Condor Energy con catálogo, pagos por PayPal y automatización de correos vía Firebase.',
         tech: 'React, Firebase, PayPal, CSS Modules',
     },
     {
         title: 'Flujos UI de Cajeros Multientidad',
         description:
-            'Diseño e implementación de interfaces administrativas para cajeros automáticos en entornos de producción reales. Integración de múltiples entidades financieras mediante APIs REST y diseño optimizado con SCSS, Bootstrap y Material UI.',
+            'Interfaces administrativas para cajeros con APIs REST y diseño UI con Bootstrap, SCSS y Material UI.',
         tech: '.NET, Redux, Bootstrap, SCSS, Azure',
     },
     {
         title: 'Portfolio Técnico Animado',
         description:
-            'Diseño y desarrollo de un portfolio profesional animado en Next.js. Incluye interacción con Three.js, collapsibles personalizados, organización por secciones y despliegue responsive optimizado.',
-        tech: 'Next.js, Framer Motion, React Three Fiber, CSS Modules',
+            'Portfolio interactivo con animaciones, collapsibles y diseño modular en Next.js y Three.js.',
+        tech: 'Next.js, SCSS, React ',
     },
 ];
 
@@ -103,7 +100,10 @@ export default function Projects() {
                                                 {techIcons[t.trim()] || null}
                                             </span>
                                         ))}
-                                        <span className={`${styles.arrow} ${isActive ? styles.rotated : ''}`}>&#x25B6;</span>
+                                        <span className={`${styles.chevron} ${isActive ? styles.rotated : ''}`}>
+                                            <FiChevronRight />
+                                        </span>
+
                                     </div>
                                 </div>
 
