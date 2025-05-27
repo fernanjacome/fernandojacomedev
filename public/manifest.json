@@ -1,9 +1,35 @@
 {
   "name": "Fernando Jácome Portfolio",
-  "short_name": "Portfolio",
-  "display": "standalone",
+  "short_name": "Fernando Jácome",
+  "description": "Portafolio profesional de Fernando Jácome, Full Stack Developer especializado en React, C# y .NET.",
+  "lang": "es",
   "start_url": "/",
-  "theme_color": "transparent",
-  "background_color": "#06000c",
-  "orientation": "portrait-primary"
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

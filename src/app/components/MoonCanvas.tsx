@@ -9,6 +9,8 @@ import {
 } from 'three';
 import { useRef, useEffect, useState } from 'react';
 import { useSection } from '../context/SectionContext';
+import { useIsMobile } from './useIsMobile';
+
 
 // CONFIGURACIÓN DE SECCIONES Y TEXTURAS
 const sectionConfig: Record<
@@ -32,6 +34,8 @@ type PlanetName = 'moon' | 'mars' | 'venus' | 'jupiter';
 
 // COMPONENTE PLANETA
 function MoonMesh() {
+    const isMobile = useIsMobile();
+
     const meshRef = useRef<Mesh>(null);
     const { currentSection } = useSection();
 
@@ -42,6 +46,7 @@ function MoonMesh() {
         texturePaths.jupiter,
     ]);
     const planetMap: Record<PlanetName, Texture> = { moon, mars, venus, jupiter };
+    const [rotationSpeed, setRotationSpeed] = useState(0.003); // velocidad normal
 
     const [currentTexture, setCurrentTexture] = useState<Texture>(moon);
     const [phase, setPhase] = useState<'idle' | 'leaving' | 'arriving'>('idle');
@@ -72,53 +77,86 @@ function MoonMesh() {
         setProgress(t);
         const target = new Vector3(...targetConfig.position);
 
-        if (phase === 'leaving' && startLeavePos) {
-            const leavePos = new Vector3(
-                startLeavePos.x - 10 * t,
-                startLeavePos.y + 5 * t,
-                startLeavePos.z
-            );
-            position.copy(leavePos);
-            scale.setScalar(targetConfig.scale * (1 - 0.4 * t));
+        if (isMobile) {
+            // Comportamiento móvil (animaciones completas)
+            if (phase === 'leaving' && startLeavePos) {
+                const leavePos = new Vector3(
+                    startLeavePos.x - 10 * t,
+                    startLeavePos.y + 5 * t,
+                    startLeavePos.z
+                );
+                position.copy(leavePos);
+                scale.setScalar(targetConfig.scale * (1 - 0.4 * t));
 
-            if (t >= 1 && nextTexture) {
+                if (t >= 1 && nextTexture) {
+                    setCurrentTexture(nextTexture);
+                    setPhase('arriving');
+                    setProgress(0);
+                    setStartLeavePos(null);
+
+                    const entryPos = new Vector3(
+                        target.x + 10,
+                        target.y - 5,
+                        target.z
+                    );
+                    mesh.position.copy(entryPos);
+                    mesh.scale.setScalar(targetConfig.scale * 0.6);
+                }
+            }
+
+            else if (phase === 'arriving') {
+                const enterPos = new Vector3(
+                    target.x + 10 * (1 - t),
+                    target.y - 5 * (1 - t),
+                    target.z
+                );
+                position.copy(enterPos);
+                scale.setScalar(targetConfig.scale * (0.6 + 0.4 * t));
+
+                if (t >= 1) {
+                    setPhase('idle');
+                    setProgress(0);
+                }
+            }
+
+            else if (phase === 'idle') {
+                position.lerp(target, 0.05);
+                scale.setScalar(scale.x + (targetConfig.scale - scale.x) * 0.05);
+            }
+        } else {
+            const fixedDesktopPosition = new Vector3(0, -5.1, -1);
+            const fixedDesktopScale = 4.5;
+
+            // si está por transformarse, aumentá la velocidad
+            if (phase === 'leaving' && nextTexture) {
+                setRotationSpeed(0.3); // rotación rápida
                 setCurrentTexture(nextTexture);
                 setPhase('arriving');
                 setProgress(0);
-                setStartLeavePos(null);
-
-                const entryPos = new Vector3(
-                    target.x + 10,
-                    target.y - 5,
-                    target.z
-                );
-                mesh.position.copy(entryPos);
-                mesh.scale.setScalar(targetConfig.scale * 0.6);
             }
-        }
 
-        else if (phase === 'arriving') {
-            const enterPos = new Vector3(
-                target.x + 10 * (1 - t),
-                target.y - 5 * (1 - t),
-                target.z
-            );
-            position.copy(enterPos);
-            scale.setScalar(targetConfig.scale * (0.6 + 0.4 * t));
-
-            if (t >= 1) {
-                setPhase('idle');
-                setProgress(0);
+            if (phase === 'arriving') {
+                // desacelerar progresivamente
+                const newSpeed = Math.max(rotationSpeed - 0.01, 0.003);
+                setRotationSpeed(newSpeed);
+                if (newSpeed <= 0.003) {
+                    setPhase('idle');
+                }
             }
+
+            if (phase === 'idle') {
+                setRotationSpeed(0.003); // velocidad normal
+            }
+
+            mesh.position.copy(fixedDesktopPosition);
+            mesh.scale.setScalar(fixedDesktopScale);
         }
 
-        else if (phase === 'idle') {
-            position.lerp(target, 0.05);
-            scale.setScalar(scale.x + (targetConfig.scale - scale.x) * 0.05);
-        }
+        // Rotación común
+        mesh.rotation.y += rotationSpeed;
 
-        mesh.rotation.y += 0.003;
     });
+
 
     return (
         <mesh ref={meshRef}>
