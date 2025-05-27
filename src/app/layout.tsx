@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fernando Jácome | Full Stack Developer",
     description:
-      "Explorá el portfolio de Fernando Jácome: desarrollador Full Stack con enfoque en sistemas reutilizables, diseño técnico y experiencia de usuario.",
+      "Desarrollador Full Stack con enfoque en sistemas reutilizables, diseño técnico y experiencia de usuario.",
     url: "https://tu-dominio.com",
     siteName: "Fernando Jácome Portfolio",
     locale: "es_ES",
