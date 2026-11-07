@@ -1,62 +1,59 @@
-/* RESET GENERAL */
+:root {
+  color-scheme: dark;
+  --paper: #0e1411;
+  --ink: #edf2ee;
+  --muted: #9baaa1;
+  --line: #293a30;
+  --panel: #151e19;
+  --accent: #8eb29b;
+  --font-display: "Segoe UI", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  margin: 0;
 }
-
-html, body {
-  height: 100dvh;
-  overflow: hidden; /* ⚠️ Esto evita que html y body tengan scroll */
-}
-main, section {
-  position: relative;
-  z-index: 1;
-}
-
-main {
-  height: 100dvh;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+html {
   scroll-behavior: smooth;
 }
-
-section {
-  height: 100dvh;
-  scroll-snap-align: start;
-  position: relative;
-}
-
-/* BODY BACKGROUND */
 body {
-  background: radial-gradient(ellipse at center, #000008 0%, #000000 100%);
-  background-image: url("/textures/milky.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  z-index: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
-
-
-
-/* CANVAS CONTAINER FOR MOON */
-.canvasContainer {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100dvh;
-  overflow: hidden;
-  background-color: transparent;
-  pointer-events: none;
-  transform: none !important;
-  z-index: 0;
+a {
+  color: inherit;
 }
-
-.about,
-.projects, .skills{
-  display: flex;
-  align-items: center;
-  padding: 1rem;
+::selection {
+  background: #284c36;
+  color: #ffffff;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  padding: 14px 20px;
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 20;
+}
+.skip-link:focus {
+  top: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
 }

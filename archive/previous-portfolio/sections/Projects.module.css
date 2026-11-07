@@ -1,0 +1,494 @@
+.projects {
+  --case-accent: #8fa8ff;
+  --case-accent-soft: rgba(143, 168, 255, 0.14);
+  --case-line: rgba(255, 255, 255, 0.12);
+  --case-panel: rgba(14, 15, 20, 0.86);
+  width: min(1080px, 100%);
+  max-height: 94dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #f3f3f3;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+
+.projects::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  max-width: 680px;
+  margin: 0 auto 0.62rem;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 0.45rem;
+  padding: 0.28rem 0.65rem;
+  border: 1px solid rgba(143, 168, 255, 0.26);
+  border-radius: 999px;
+  background: rgba(143, 168, 255, 0.07);
+  color: #c8d4ff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #f7f7f7;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 46px;
+  height: 2px;
+  margin: 0.7rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #ffffff, var(--case-accent), transparent);
+}
+
+.description {
+  max-width: 590px;
+  margin: 0.48rem auto 0;
+  color: #b8bcc8;
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+.workbench {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
+  gap: 0.8rem;
+}
+
+.projectRail,
+.casePanel {
+  border: 1px solid var(--case-line);
+  border-radius: 12px;
+  background: var(--case-panel);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(10px);
+}
+
+.projectRail {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  padding: 0.45rem;
+}
+
+.projectTab {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+  min-height: 3.35rem;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #d9dce6;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.projectTab:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateX(2px);
+}
+
+.activeTab {
+  border-color: rgba(143, 168, 255, 0.36);
+  background: linear-gradient(90deg, rgba(143, 168, 255, 0.16), rgba(255, 255, 255, 0.035));
+}
+
+.tabNumber {
+  color: var(--case-accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.tabIcon {
+  display: grid;
+  width: 1.9rem;
+  height: 1.9rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+  color: #ffffff;
+}
+
+.tabCopy {
+  display: grid;
+  gap: 0.14rem;
+  min-width: 0;
+}
+
+.tabCopy strong {
+  overflow: hidden;
+  color: #f1f2f6;
+  font-size: 0.77rem;
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.tabCopy small {
+  color: #9da3b4;
+  font-size: 0.66rem;
+  line-height: 1.2;
+}
+
+.casePanel {
+  display: grid;
+  gap: 0.62rem;
+  min-width: 0;
+  overflow: hidden;
+  padding: clamp(0.95rem, 2vw, 1.25rem);
+  animation: panelIn 0.22s ease both;
+}
+
+.panelTop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.panelTop span,
+.signal,
+.recruiterNote,
+.scoreCard,
+.stackBlock,
+.flowMap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.panelTop span {
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  color: #c8cdd8;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.heroLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, 0.34fr);
+  gap: 0.68rem;
+  align-items: stretch;
+}
+
+.heroLine > * {
+  min-width: 0;
+}
+
+.heroLine h3 {
+  max-width: 15ch;
+  margin: 0 0 0.42rem;
+  color: #ffffff;
+  font-size: clamp(1.55rem, 3.2vw, 2.35rem);
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.heroLine p {
+  max-width: 58ch;
+  margin: 0;
+  color: #c8ccd6;
+  font-size: 0.95rem;
+  line-height: 1.48;
+  overflow-wrap: anywhere;
+}
+
+.scoreCard {
+  display: grid;
+  align-content: start;
+  gap: 0.42rem;
+  border-radius: 10px;
+  padding: 0.68rem;
+}
+
+.scoreCard svg {
+  color: var(--case-accent);
+  font-size: 1.05rem;
+}
+
+.scoreCard span,
+.recruiterNote span,
+.stackBlock span,
+.flowHeader span {
+  color: #9097aa;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scoreCard strong {
+  color: #f1f2f5;
+  font-size: 0.86rem;
+  line-height: 1.32;
+}
+
+.signalGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.48rem;
+}
+
+.signal {
+  display: flex;
+  min-height: 2.8rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9px;
+  padding: 0.55rem;
+}
+
+.signal svg {
+  flex: 0 0 auto;
+  color: var(--case-accent);
+}
+
+.signal span {
+  color: #eceef4;
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.flowMap {
+  display: grid;
+  gap: 0.58rem;
+  border-radius: 10px;
+  padding: 0.68rem;
+}
+
+.flowHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.flowHeader svg {
+  color: var(--case-accent);
+}
+
+.flowSteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.flowStep {
+  position: relative;
+  display: grid;
+  gap: 0.2rem;
+  min-height: 3.72rem;
+  align-content: center;
+  padding: 0.6rem 2rem 0.6rem 0.7rem;
+  border: 1px solid rgba(143, 168, 255, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(143, 168, 255, 0.14), transparent 58%),
+    rgba(255, 255, 255, 0.035);
+  animation: stepIn 0.28s ease both;
+}
+
+.flowStep:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+.flowStep:nth-child(3) {
+  animation-delay: 0.08s;
+}
+
+.flowStep::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  border-radius: 8px 0 0 8px;
+  background: var(--case-accent);
+  opacity: 0.55;
+}
+
+.flowStep span {
+  color: var(--case-accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.flowStep strong {
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.12;
+}
+
+.flowStep svg {
+  position: absolute;
+  right: 0.72rem;
+  top: 50%;
+  color: #ccd5ff;
+  transform: translateY(-50%);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.38fr);
+  gap: 0.75rem;
+}
+
+.stackBlock,
+.recruiterNote {
+  border-radius: 10px;
+  padding: 0.65rem;
+}
+
+.stackBlock {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.stackBlock > svg {
+  flex: 0 0 auto;
+  margin-top: 0.08rem;
+  color: var(--case-accent);
+}
+
+.stackRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin-top: 0.45rem;
+}
+
+.stackRail small {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.3rem 0.48rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: #d9dce6;
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.stackRail svg {
+  color: #ffffff;
+}
+
+.recruiterNote {
+  display: grid;
+  align-content: center;
+  gap: 0.35rem;
+  background: rgba(143, 168, 255, 0.085);
+}
+
+.recruiterNote strong {
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0.72;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stepIn {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .workbench,
+  .heroLine,
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectRail,
+  .signalGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .projects {
+    width: calc(100vw - 1.5rem);
+    max-height: 90dvh;
+  }
+
+  .description {
+    font-size: 0.86rem;
+  }
+
+  .projectRail {
+    grid-template-columns: 1fr;
+    max-height: 10rem;
+    overflow-y: auto;
+  }
+
+  .casePanel {
+    padding: 0.92rem;
+  }
+
+  .heroLine h3 {
+    max-width: 100%;
+    font-size: 1.3rem;
+  }
+
+  .heroLine p {
+    font-size: 0.82rem;
+  }
+
+  .scoreCard strong,
+  .recruiterNote strong {
+    font-size: 0.82rem;
+  }
+
+  .signalGrid,
+  .flowSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .signal {
+    min-height: 2.75rem;
+  }
+}

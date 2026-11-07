@@ -1,0 +1,290 @@
+.about {
+  width: min(720px, 100%);
+  color: #e6e6e6;
+}
+
+.aboutBlock {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(7px);
+}
+
+.header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: #f0f0f0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 0.75rem auto 0;
+  border-radius: 1px;
+  background: #444;
+}
+
+.description {
+  max-width: 38rem;
+  margin: 1rem auto 0;
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.tab:hover,
+.active {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.content {
+  min-height: 17rem;
+  padding: 1rem;
+  border-radius: 0 0 14px 14px;
+}
+
+.subtitle {
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+  font-size: 1.2rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid #2a2a2a;
+  text-align: left;
+}
+
+.timeline div {
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.timeline .date {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #888;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.timeline div strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.timeline div p {
+  margin: 0;
+  color: #a8a8a8;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.6rem;
+}
+
+.techItem,
+.cardItem,
+.hobbyCardCompact {
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  background: rgba(26, 26, 26, 0.82);
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.45rem 0.25rem;
+  color: #ccc;
+  font-size: 0.75rem;
+  text-align: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.techItem:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.techIcon {
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+
+.techLabel {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.personalCardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.8rem;
+}
+
+.cardItem {
+  display: flex;
+  min-height: 4.8rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+}
+
+.label {
+  color: #8b8b8b;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.value {
+  color: #c8c8c8;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.hobbyGridCompact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.hobbyCardCompact {
+  display: flex;
+  width: min(21rem, 100%);
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+}
+
+.hobbyCardCompact .label {
+  margin-bottom: 0.25rem;
+  color: #888;
+  font-size: 0.78rem;
+}
+
+.hobbyCardCompact p {
+  color: #c8c8c8;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.profileBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.profileRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.profileRow:last-child {
+  border-bottom: none;
+}
+
+.profileRow .label {
+  flex: 1 1 40%;
+  font-weight: 500;
+}
+
+.profileRow .value {
+  flex: 1 1 40%;
+  color: #f0f0f0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: right;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .aboutBlock {
+    max-height: 88dvh;
+  }
+
+  .header {
+    padding: 1.35rem 1rem 0.85rem;
+  }
+
+  .tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+  }
+
+  .content {
+    overflow-y: auto;
+  }
+
+  .profileRow .value {
+    text-align: left;
+  }
+}

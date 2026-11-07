@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fernando Jácome · Portfolio profesional
 
-## Getting Started
+Portafolio personal con Next.js App Router, React y TypeScript. Grafito y verde técnico, capturas reales, logos de los proyectos y trayectoria profesional.
 
-First, run the development server:
+## Desarrollo
 
-```bash
+Requiere Node.js 20.9 o posterior (preferible una versión LTS vigente).
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verificación y producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npm start
+```
 
-## Learn More
+## Editar contenido
 
-To learn more about Next.js, take a look at the following resources:
+- `src/content/portfolio.ts`: identidad, contacto, experiencia, capacidades y proyectos.
+- `src/app/page.tsx`: estructura semántica de la página.
+- `src/app/portfolio.module.css`: diseño y adaptación móvil.
+- `src/app/globals.css`: paleta, tipografía del sistema y accesibilidad.
+- `src/app/layout.tsx`: metadatos; el dominio se obtiene de `profile.url`.
+- `src/app/opengraph-image.tsx`: imagen social, sin descargas de fuentes en compilación.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Los casos se expanden con HTML nativo. `src/app/components/ProjectMedia.tsx` contiene la galería con diálogo modal, navegación entre capturas y controles de teclado. El resto de la página se renderiza en el servidor. No hay librerías de animación ni escena 3D.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Las imágenes optimizadas están en `public/projects/` y `public/logos/`. Su procedencia está documentada en [ASSETS.md](docs/ASSETS.md); los archivos originales no se modifican.
 
-## Deploy on Vercel
+## Contenido y publicación
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Consultar [fuentes y pendientes editoriales](docs/CONTENT.md) y [revisión del proyecto](docs/PROJECT-REVIEW.md). Confirmar contactos, dominio y materiales pendientes antes de presentar la web como versión definitiva. No hay formulario, analítica, secretos ni acceso a los sistemas descritos.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`archive/previous-portfolio/` conserva la implementación y los cambios locales anteriores; no se compila ni se sirve. No utilizar su CV de 2025 como documento actualizado.
