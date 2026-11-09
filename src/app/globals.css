@@ -1,13 +1,34 @@
+@property --paper { syntax: "<color>"; inherits: true; initial-value: #000000; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #e7e9ea; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #909aa3; }
+@property --line { syntax: "<color>"; inherits: true; initial-value: #2f3336; }
+@property --panel { syntax: "<color>"; inherits: true; initial-value: #16181c; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #00abeb; }
+
 :root {
   color-scheme: dark;
-  --paper: #0e1411;
-  --ink: #edf2ee;
-  --muted: #9baaa1;
-  --line: #293a30;
-  --panel: #151e19;
-  --accent: #8eb29b;
-  --font-display: "Segoe UI", Arial, sans-serif;
+  --paper: #000000;
+  --ink: #e7e9ea;
+  --muted: #909aa3;
+  --line: #2f3336;
+  --panel: #16181c;
+  --accent: #00abeb;
+  --hover: #ffffff08;
+  --reaction: #f91880;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  transition: --paper 180ms ease, --ink 180ms ease, --muted 180ms ease,
+    --line 180ms ease, --panel 180ms ease, --accent 180ms ease;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper: #ffffff;
+  --ink: #0f1419;
+  --muted: #536471;
+  --line: #cfd9de;
+  --panel: #eff3f4;
+  --accent: #006b99;
+  --hover: #0f141909;
+  --reaction: #bc155e;
 }
 * {
   box-sizing: border-box;
@@ -15,6 +36,9 @@
 }
 html {
   scroll-behavior: smooth;
+}
+html:has(dialog[open]) {
+  overflow: hidden;
 }
 body {
   background: var(--paper);
@@ -26,7 +50,7 @@ a {
   color: inherit;
 }
 ::selection {
-  background: #284c36;
+  background: #17465a;
   color: #ffffff;
 }
 a:focus-visible,

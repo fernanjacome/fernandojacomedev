@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 440" fill="none">
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1320" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101d19"/><stop offset="1" stop-color="#0c1212"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0v32" stroke="#70958c" stroke-opacity=".15"/>
+    </pattern>
+  </defs>
+  <path fill="url(#surface)" d="M0 0h1320v440H0z"/>
+  <path fill="url(#grid)" d="M0 0h1320v440H0z"/>
+  <g font-family="monospace">
+    <text x="66" y="90" fill="#77968a" font-size="19" letter-spacing="4">FERNANDOJACOME.DEV</text>
+    <text x="65" y="167" fill="#d8eee1" font-size="42" font-weight="700">C# / .NET</text>
+    <text x="67" y="216" fill="#62e1a0" font-size="24">React · SQL Server</text>
+    <path d="M66 253h174" stroke="#527f69" stroke-width="2"/>
+    <text x="67" y="289" fill="#8ba99c" font-size="20">Software financiero y web</text>
+  </g>
+  <g stroke="#78bd98" stroke-width="2">
+    <path d="M501 167h151l44 44h85m201 0h84l44-44h145M982 257h92l44 44h138M781 257h-76l-44 44H527" opacity=".65"/>
+    <path d="M609 88h97l75 75m201 0 78-78h112M781 306l-60 60H578m404-60 61 60h143" opacity=".25"/>
+    <rect x="781" y="124" width="201" height="217" rx="15" fill="#142720"/>
+    <rect x="815" y="156" width="133" height="84" rx="6" fill="#10201a"/>
+    <path d="m858 181-17 17 17 17m47-34 17 17-17 17m-15-41-17 48M829 268h105m-87 25h69m-69 16h69"/>
+    <circle cx="501" cy="167" r="5" fill="#62e1a0"/><circle cx="527" cy="301" r="5" fill="#62e1a0"/>
+    <circle cx="1255" cy="167" r="5" fill="#62e1a0"/><circle cx="1256" cy="301" r="5" fill="#62e1a0"/>
+  </g>
+</svg>
