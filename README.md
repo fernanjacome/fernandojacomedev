@@ -28,8 +28,8 @@ npm start
 - `src/app/page.tsx`: estructura semántica de la página.
 - `src/app/portfolio.module.css`: diseño y adaptación móvil.
 - `src/app/globals.css`: paleta, tipografía del sistema y accesibilidad.
-- `src/app/layout.tsx`: metadatos; el dominio se obtiene de `profile.url`.
-- `src/app/opengraph-image.tsx`: imagen social, sin descargas de fuentes en compilación.
+- `src/app/portfolio-layout.tsx` y `src/app/portfolio-seo.ts`: metadatos bilingües y datos estructurados. La URL pública se configura en `profile.url`.
+- `src/app/social-card.tsx`: tarjetas sociales en español e inglés generadas con el logo de `public/brand.png`.
 
 Los casos se expanden con HTML nativo. `src/app/components/ProjectMedia.tsx` contiene la galería con diálogo modal, navegación entre capturas y controles de teclado. El resto de la página se renderiza en el servidor. No hay librerías de animación ni escena 3D.
 

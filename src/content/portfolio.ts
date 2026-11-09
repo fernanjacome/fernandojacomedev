@@ -7,12 +7,12 @@ export const profile = {
   specialty: "Fintech & ATM Systems",
   location: "Guayaquil, Ecuador",
   email: "fernanjacome0sb@gmail.com",
-  url: "https://fernandojacome.dev",
+  url: "https://fernandojacomedev.vercel.app",
   linkedin:
     "https://www.linkedin.com/in/fernando-j%C3%A1come-v%C3%A9liz-408b7a281/",
   github: "https://github.com/fernanjacome",
   description:
-    "Ingeniero de software en Guayaquil. Desarrollo full stack con C#/.NET, React y SQL Server para plataformas bancarias, sistemas ATM y aplicaciones web.",
+    "Fernando Jácome, ingeniero de software full stack en Guayaquil, Ecuador. Proyectos con C#/.NET, React y SQL Server para banca, sistemas ATM y aplicaciones web.",
   introduction:
     "Trabajo en el desarrollo y modernización de aplicaciones empresariales, principalmente para el sector financiero. También desarrollo proyectos web independientes.",
   tags: ["FullStack", "DotNet", "React", "SQLServer", "FinTech"],

@@ -1,3 +1,3 @@
-export { default as GET } from "../social-image";
+export { renderDefaultSocialImage as GET } from "../social-card";
 
 export const dynamic = "force-static";

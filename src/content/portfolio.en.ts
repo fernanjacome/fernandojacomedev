@@ -1,6 +1,6 @@
 export const englishProfile = {
   introduction: "I build and modernize enterprise applications, primarily for the financial sector. I also develop independent web projects.",
-  description: "Software engineer in Guayaquil. Full stack development with C#/.NET, React, and SQL Server for banking platforms, ATM systems, and web applications.",
+  description: "Fernando Jácome, full stack software engineer in Guayaquil, Ecuador. C#/.NET, React, and SQL Server projects for banking, ATM systems, and the web.",
 };
 
 type ProjectCopy = {
